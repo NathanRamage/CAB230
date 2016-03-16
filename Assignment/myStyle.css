@@ -1,0 +1,48 @@
+#wrapper {
+    margin: auto;
+    background-color: #62C4FF;
+    width: 1024px;
+    height: 100%;
+}
+
+#header {
+    width: 100%;
+    height: 150px;
+    border: 1px solid black;
+    background-color: #CCCC;
+}
+
+#menu {
+    width: 100%;
+    height: 50px;
+}
+
+#search {
+    width: 100%;
+    height: 100px;
+}
+
+#content {
+    width: 100%;
+}
+
+#map {
+    width: 70%;
+    float: left;
+    background-color: pink;
+}
+
+#result_list {
+    width: 30%;
+    float: right;
+    background-color: light_green;
+}
+
+#microdata {
+
+}
+
+#footer {
+    width: 100%;
+    height: 50px;
+}
