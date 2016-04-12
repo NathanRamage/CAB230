@@ -62,3 +62,22 @@ function hideRatings() {
         }
     }
 }
+
+function myjson() {
+  var text = '{"parks" : [' +
+    '{"Name" : "ANNA SMITH OBE QUOTA PARK", "Code" : "D0911", "Suburb" : "CARINDALE"},' +
+    '{"Name" : "ABLINGTON WAY PARK", "Code" : "D1637", "Suburb" : "CARINDALE"},' +
+    '{"Name" : "A. J. JONES RECREATION RESERVE", "Code" : "D0021", "Suburb" : "CHERMSIDE"}' +
+  ']}';
+
+  obj = JSON.parse(text);
+
+  var div = document.getElementById('result');
+
+  if (obj.parks[0].Suburb == obj.parks[2].Suburb) {
+    div.innerHTML = "Yes";
+  }
+  else {
+    div.innerHTML = "No";
+  }
+}

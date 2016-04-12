@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!-- based on http://www.w3schools.com/html/tryit.asp?filename=tryhtml5_geolocation_error -->
+<html>
+
+<head>
+<script>
+function getLocation() {
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(showPosition, showError);
+	} else {
+		document.getElementById("status").innerHTML="Geolocation is not supported by this browser.";
+	}
+}
+
+/*function calcPos (lon1, lat1) {
+	var lon2 = -81.581111;
+	var lat2 = 28.418611;
+
+	var R = 6371000; // metres
+	var φ1 = lat1.toRad();
+	var φ2 = lat2.toRad();
+	var Δφ = (lat2-lat1).toRad();
+	var Δλ = (lon2-lon1).toRad();
+
+	var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+	        Math.cos(φ1) * Math.cos(φ2) *
+	        Math.sin(Δλ/2) * Math.sin(Δλ/2);
+	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+
+	var d = R * c;
+
+	return d;
+}*/
+
+function showPosition(position) {
+	var lon1 = position.coords.longitude;
+	var lat1 = position.coords.latitude;
+
+	var lon2 = -81.581111;
+	var lat2 = 28.418611;
+
+	var R = 6371000; // metres
+	var t1 = toRad(lat1);
+	var t2 = toRad(lat2);
+	var dt = toRad(lat2-lat1);
+	var ds = toRad(lon2-lon1);
+
+	var a = Math.sin(dt/2) * Math.sin(dt/2) +
+	        Math.cos(t1) * Math.cos(t2) *
+	        Math.sin(ds/2) * Math.sin(ds/2);
+	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+
+	var d = R * c;
+
+	var km = d / 1000;
+
+	document.getElementById("status").innerHTML = "Distance from disney land " + km + " km.";
+
+	// display on a map
+	var latlon = position.coords.latitude + "," + position.coords.longitude;
+	var img_url = "http://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=400x300&sensor=false";
+	document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
+
+}
+
+function toRad(value) {
+	/*if (typeof(Number.prototype.toRad) === "undefined") {
+		Number.prototype.toRad = function() {
+			return this * Math.PI / 180;
+		}
+	}*/
+	return value * Math.PI / 180;
+}
+
+function showError(error) {
+	var msg = "";
+	switch(error.code) {
+		case error.PERMISSION_DENIED:
+			msg = "User denied the request for Geolocation."
+			break;
+		case error.POSITION_UNAVAILABLE:
+			msg = "Location information is unavailable."
+			break;
+		case error.TIMEOUT:
+			msg = "The request to get user location timed out."
+			break;
+		case error.UNKNOWN_ERROR:
+			msg = "An unknown error occurred."
+			break;
+	}
+	document.getElementById("status").innerHTML = msg;
+}
+</script>
+</head>
+
+<body>
+<button onclick="getLocation()">Get location!</button>
+<p id="status">Click the button to get your coordinates.</p>
+<div id="mapholder"></div>
+</body>
+
+</html>
