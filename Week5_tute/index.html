@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="myscript.js"></script>
+        <link href="myStyle.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 id="welcome">Welcome!</h1>
+        <p>
+            Here'e a <a onclick="welcome(); return false;" href="#">link with an onClick.</a>
+        </p>
+        <ul>
+            <li>
+                Item 1
+            </li>
+            <li>
+                Item 2
+            </li>
+            <li>
+                Item 3
+            </li>
+            <li>
+                Item 4
+            </li>
+        </ul>
+
+        <ul id="fruits">
+            <li>Orange</li>
+            <li>Apple</li>
+            <li>Banana</li>
+        </ul>
+        <div id="stuff">
+        </div>
+        <script type="text/javascript">myPrint();</script>
+        <div id="box" onmouseover="showThing()" onmouseout="hideThing()">
+
+        </div>
+        <table id="ratingTable">
+            <tr>
+                <td>
+                    1
+                </td>
+                <td>
+                    0
+                </td>
+                <td>
+                    5
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    5
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    3
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    2
+                </td>
+                <td>
+                    3
+                </td>
+                <td>
+                    1
+                </td>
+            </tr>
+        </table>
+        <a onclick="hideRatings(); return false;" href="#">Hide ratings less than 3</a>
+    </body>
+</html>
