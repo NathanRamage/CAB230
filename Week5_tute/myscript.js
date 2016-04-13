@@ -74,7 +74,7 @@ function myjson() {
 
   var div = document.getElementById('result');
 
-  if (obj.parks[0].Suburb == obj.parks[2].Suburb) {
+  if (obj.parks[0].Suburb == obj.parks[1].Suburb) {
     div.innerHTML = "Yes";
   }
   else {

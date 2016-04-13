@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="myscript.js"></script>
+    </head>
+    <body>
+        <form>
+            Surname: <input type="text" id="surname" name="surname" onchange="resetNameError()" />
+            <span id="surnameMissing"  style="color:red; visibility:hidden">Surname is required</span>
+            <br />Street Address: <input type="text" id="street_address" name="street_address" />
+            State: <select id="state" name="state" />
+            <option>
+                QLD
+            </option>
+            <option>
+                NSW
+            </option>
+            <option>
+                VIC
+            </option>
+            <option>
+                SA
+            </option>
+            <option>
+                WA
+            </option>
+            <option>
+                NT
+            </option>
+            <option>
+                TAS
+            </option></select>
+            Email: <input type="text" id="email" name="email" />
+            Sex:
+            <input type="radio" id="sex" name="sex" value="Male" /> Male
+            <input type="radio" id="sex" name="sex" value="Female" /> Female<br />
+            Vegitarian? <input type="checkbox" id="veggo" name="veggo" /><br />
+            Password: <input type="password" id="password" name="password" onchange="resetPassError()" />
+            <span id="pass_incorrect" style="color:red; visibility:hidden">Passwords do not match</span><br />
+            Comfirm Password: <input type="password" id="confirm_pword" name="confirm_pword" />
+            <input type="button" id="submit" name="submit" value="submit" onclick="validate()" />
+        </form>
+    </body>
+</html>
